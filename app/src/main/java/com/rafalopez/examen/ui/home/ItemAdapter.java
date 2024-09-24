@@ -38,10 +38,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
      *        item at the given position in the data set.
      * @param position The position of the item within the adapter's data set.
      */
-
+    // uso de ArrayList
      public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
-            Product product = products.get(position);
+            int itemkey = (getItemCount() - position - 1); // no se como ordenar el TreeSet desc
+            Product product = products.get(itemkey);
             Log.d("salida", product.toString());
             holder.itemCodigo.setText(product.getCode().toString());
             holder.itemPrecio.setText(product.getPrice() +"");
