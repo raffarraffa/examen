@@ -11,8 +11,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.rafalopez.examen.MainActivity;
+import com.rafalopez.examen.R;
 import com.rafalopez.examen.databinding.FragmentSlideshowBinding;
 
 public class SlideshowFragment extends Fragment {
@@ -27,7 +30,8 @@ public class SlideshowFragment extends Fragment {
         binding = FragmentSlideshowBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         exitDialog("EXaMAN MOVILES", "Esta por salir de la aplicacion \n " +
-                "confirme  para  hacerlo? ");
+                "confirme  para  hacerlo? ",root );
+
         return root;
     }
     @Override
@@ -35,7 +39,7 @@ public class SlideshowFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-    private void exitDialog(String title, String mesage ){
+    private void exitDialog(String title, String mesage,View v ){
         new AlertDialog.Builder(getContext())
                 .setTitle(title)
                 .setMessage(mesage)
@@ -49,7 +53,8 @@ public class SlideshowFragment extends Fragment {
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        NavController navController = Navigation.findNavController(v);
+                        navController.navigate(R.id.nav_home);
                     }
                 })
                 .show();
