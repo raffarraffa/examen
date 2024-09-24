@@ -9,7 +9,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
+import com.rafalopez.examen.R;
 import com.rafalopez.examen.databinding.FragmentGalleryBinding;
 import com.rafalopez.examen.entity.Product;
 
@@ -33,7 +36,16 @@ public class GalleryFragment extends Fragment {
                 producto.setPrice(Double.parseDouble(binding.inputPrecio.getText().toString()));
                 producto.setStock(Integer.parseInt(binding.inputStock.getText().toString()));
                 galleryViewModel.setProducto(producto);
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.nav_home);
 
+            }
+        });
+        binding.btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.nav_home);
             }
         });
 
