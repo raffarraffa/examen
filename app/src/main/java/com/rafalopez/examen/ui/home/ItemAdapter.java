@@ -13,13 +13,15 @@ import com.rafalopez.examen.R;
 import com.rafalopez.examen.entity.Product;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.TreeSet;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
-    //private  TreeSet<Product> products = new TreeSet<>();
+    //private  TreeSet<Product> products;
     public ArrayList<Product> products ;
     private LayoutInflater li;
-    public ItemAdapter(ArrayList<Product> produ, LayoutInflater li) {
-        this.products = produ;
+    public ItemAdapter(TreeSet<Product> products, LayoutInflater li) {
+        this.products = new ArrayList<Product>(products);
         this.li=li;
     }
     @NonNull
@@ -28,16 +30,26 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         View view = li.inflate(R.layout.item,parent,false);
         return new ViewHolder(view);
     }
-    @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-       Product product = products.get(position);
-       Log.d("salida", product.toString());
-       holder.itemCodigo.setText(product.getCode().toString());
-       holder.itemPrecio.setText(product.getPrice() +"");
-       holder.itemStock.setText(product.getStock() +"");
-       holder.itemDescripcion.setText(product.getDescription());
+    /**
+     * El metodo pra bindear los productos, no puede iterar sobre un TreeSet, ya qu eutiliza
+     * position para obtenr el producto. Se convierteel treeset en ArrayList
+     * @param holder The ViewHolder which should be updated to represent the contents of the
+     *        item at the given position in the data set.
+     * @param position The position of the item within the adapter's data set.
+     */
+
+     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
+            Product product = products.get(position);
+            Log.d("salida", product.toString());
+            holder.itemCodigo.setText(product.getCode().toString());
+            holder.itemPrecio.setText(product.getPrice() +"");
+            holder.itemStock.setText(product.getStock() +"");
+            holder.itemDescripcion.setText(product.getDescription());
+
     }
+
 
     @Override
     public int getItemCount() {

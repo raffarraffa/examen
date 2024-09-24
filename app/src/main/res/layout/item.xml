@@ -85,7 +85,8 @@
             android:text="TextView"
             app:layout_constraintBottom_toTopOf="@+id/itemDescripcion"
             app:layout_constraintEnd_toStartOf="@+id/itemStock"
-            app:layout_constraintTop_toBottomOf="@+id/titlePrecio" />
+            app:layout_constraintTop_toBottomOf="@+id/titlePrecio"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/titleDescripcion"
@@ -103,7 +104,7 @@
         <TextView
             android:id="@+id/itemDescripcion"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="60dp"
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
             android:text="TextView"

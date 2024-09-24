@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
-    //public static TreeSet<Product> products = new TreeSet<>();
-    public static ArrayList<Product> products = new ArrayList<>();
+    public static TreeSet<Product> products = new TreeSet<>();
+  //  public static ArrayList<Product> products = new ArrayList<>();
 
 
     @Override
@@ -34,11 +34,21 @@ public class MainActivity extends AppCompatActivity {
         /* harcodeado item*/
 
         products.add(new Product("P001", "Product 1", 10, 29.99));
+        products.add(new Product("P001", "Product 1", 10, 29.99));
+        products.add(new Product("P001", "Product 1", 10, 29.99));
+        products.add(new Product("P001", "Product 1", 10, 29.99));
+        products.add(new Product("P001", "Product 1", 10, 29.99));
         products.add(new Product("P002", "Product 2", 20, 19.99));
+        products.add(new Product("P003", "Product 3", 30, 39.99));
+        products.add(new Product("P003", "Product 3", 30, 39.99));
+        products.add(new Product("P003", "Product 3", 30, 39.99));
         products.add(new Product("P003", "Product 3", 30, 39.99));
         products.add(new Product("P004", "Product 4", 40, 29.99));
         products.add(new Product("P005", "Product 5", 50, 19.99));
-        products.add(new Product("P006", "Product 6", 60, 39.99));
+        products.add(new Product("P006", "Product 6 \n Bolsa cemento", 60, 39.08));
+        products.add(new Product("P006", "Product 6 \n Bolsa cemento", 60, 39.02));
+        products.add(new Product("P006", "Product 6 \n Bolsa cemento", 60, 39.03));
+        products.add(new Product("P006", "Product 6 \n Bolsa cemento", 60, 39.04));
 
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
