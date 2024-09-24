@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         /* harcodeado item*/
 
+        products.add(new Product("1", "Product 1", 10, 1));
         products.add(new Product("P001", "Product 1", 10, 29.99));
         products.add(new Product("P001", "Product 1", 10, 29.99));
         products.add(new Product("P001", "Product 1", 10, 29.99));
